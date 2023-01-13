@@ -19,3 +19,5 @@ class QuibralsFurniture extends StatelessWidget {
     );
   }
 }
+
+// responsive navbar web: https://youtu.be/hPdd-UbACNE
