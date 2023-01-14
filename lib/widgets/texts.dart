@@ -1,12 +1,52 @@
 import 'package:flutter/material.dart';
 
-TextAlign taCenter = TextAlign.center;
+FontStyle italic = FontStyle.italic;
+FontStyle fsNormal = FontStyle.normal;
 
-Widget poppins(String text, TextAlign textAlign) {
+FontWeight fwBold = FontWeight.bold;
+FontWeight fwNormal = FontWeight.normal;
+
+TextAlign taCenter = TextAlign.center;
+TextAlign taLeft = TextAlign.left;
+TextAlign taRight = TextAlign.right;
+
+Widget poppins(
+  String text,
+  Color color,
+  double fontSize,
+  FontStyle fontStyle,
+  FontWeight fontWeight,
+  TextAlign textAlign,
+) {
   return Text(
     text,
     style: TextStyle(
+      color: color,
       fontFamily: 'Poppins',
+      fontSize: fontSize,
+      fontStyle: fontStyle,
+      fontWeight: fontWeight,
+    ),
+    textAlign: textAlign,
+  );
+}
+
+Widget moonDance(
+  String text,
+  Color color,
+  double fontSize,
+  FontStyle fontStyle,
+  FontWeight fontWeight,
+  TextAlign textAlign,
+) {
+  return Text(
+    text,
+    style: TextStyle(
+      color: color,
+      fontFamily: 'Moon Dance',
+      fontSize: fontSize,
+      fontStyle: fontStyle,
+      fontWeight: fontWeight,
     ),
     textAlign: textAlign,
   );

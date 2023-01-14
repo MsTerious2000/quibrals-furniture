@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+Color black = Colors.black;
+Color darkGreen = Colors.green.shade900;
+Color darkRed = Colors.red.shade900;
+Color white = Colors.white;
+
+// wood palette
 Color hickory = HexColor('#371D10');
 
 class HexColor extends Color {
