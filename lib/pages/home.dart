@@ -1,72 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
-import 'package:quibrals_furniture/widgets/dialogs.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:responsive_grid_list/responsive_grid_list.dart';
 
-class HomePage extends StatefulWidget {
-  final String title;
-  const HomePage({super.key, required this.title});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Container(
-              height: 35,
-              width: 35,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('images/quibrals-furniture-logo.png'),
-                ),
-              ),
+    return ResponsiveGridList(
+      horizontalGridSpacing: 10,
+      verticalGridSpacing: 10,
+      horizontalGridMargin: 10,
+      verticalGridMargin: 10,
+      minItemWidth: 100,
+      minItemsPerRow: 1,
+      maxItemsPerRow: 3,
+      listViewBuilderOptions: ListViewBuilderOptions(),
+      children: List.generate(
+        20,
+        (index) => ColoredBox(
+          color: Colors.lightBlue,
+          child: Padding(
+            padding: const EdgeInsets.all(32),
+            child: Text(
+              '$index',
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.white),
             ),
-            const SizedBox(width: 10),
-            moonDance(widget.title, white, 25, fsNormal, fwNormal, taCenter),
-          ],
-        ),
-        backgroundColor: hickory,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.message, color: white),
           ),
-        ],
+        ),
       ),
-      drawer: Drawer(),
     );
-  }
-
-  Future<void> openMessenger() async {
-    if (!await launchUrl(
-      Uri.parse('https://m.me/quibralsfurniture'),
-      mode: LaunchMode.externalApplication,
-    )) {
-      showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) => errorDialog(context, 'Cannot open Messenger!'),
-      );
-    }
-  }
-
-  Future<void> openFacebook() async {
-    if (!await launchUrl(
-      Uri.parse('https://www.facebook.com/quibralsfurniture'),
-      mode: LaunchMode.externalApplication,
-    )) {
-      showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) => errorDialog(context, 'Cannot open Facebook!'),
-      );
-    }
   }
 }

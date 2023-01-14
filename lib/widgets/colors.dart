@@ -6,6 +6,7 @@ Color darkRed = Colors.red.shade900;
 Color white = Colors.white;
 
 // wood palette
+Color beige = HexColor('#EEDC9A');
 Color hickory = HexColor('#371D10');
 
 class HexColor extends Color {

@@ -7,6 +7,7 @@ FontWeight fwBold = FontWeight.bold;
 FontWeight fwNormal = FontWeight.normal;
 
 TextAlign taCenter = TextAlign.center;
+TextAlign taJustify = TextAlign.justify;
 TextAlign taLeft = TextAlign.left;
 TextAlign taRight = TextAlign.right;
 

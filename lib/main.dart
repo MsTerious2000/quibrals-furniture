@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quibrals_furniture/pages/home.dart';
+import 'package:quibrals_furniture/overlay.dart';
 
 void main() {
   runApp(const QuibralsFurniture());
@@ -19,5 +19,3 @@ class QuibralsFurniture extends StatelessWidget {
     );
   }
 }
-
-// responsive navbar web: https://youtu.be/hPdd-UbACNE
