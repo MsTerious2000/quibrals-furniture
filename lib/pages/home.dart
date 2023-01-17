@@ -1,7 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
-import 'package:responsive_grid_list/responsive_grid_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,31 +12,41 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var mobileLayout = 600;
+  bool isMobile = false;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveGridList(
-      horizontalGridSpacing: 10,
-      verticalGridSpacing: 10,
-      horizontalGridMargin: 10,
-      verticalGridMargin: 10,
-      minItemWidth: 100,
-      minItemsPerRow: 1,
-      maxItemsPerRow: 3,
-      listViewBuilderOptions: ListViewBuilderOptions(),
-      children: List.generate(
-        20,
-        (index) => ColoredBox(
-          color: Colors.lightBlue,
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Text(
-              '$index',
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ),
+    return Column(
+      children: [
+        Image.asset('images/home-image.png'),
+        const Divider(thickness: 1, height: 50),
+        moonDance('Welcome to Quibral\'s Furniture!', maroon, 40, fsNormal,
+            fwBold, taCenter),
+        poppins(
+            'The beauty of wood and wood crafting.\nOur backyard shop makes, remodels & restores all kinds of wooden furniture.\nVisit us and check out our catalogs now!',
+            black,
+            15,
+            fsNormal,
+            fwBold,
+            taCenter),
+        const Divider(thickness: 1, height: 50),
+        poppins('Our Product and Services', steelBlue, 30, fsNormal, fwBold,
+            taCenter),
+        poppins(
+            'We sell made-to-order furniture and drift wood pieces at affordable prices.\nWe also repair and remodel furniture.\nOur products are unique and of high quality.',
+            black,
+            15,
+            fsNormal,
+            fwBold,
+            taCenter),
+        poppins(
+            'If you are looking for a furniture maker in Camarines Norte and the Bicol region with superb craftsmanship, we are here to serve you.',
+            black,
+            15,
+            fsNormal,
+            fwBold,
+            taCenter),
+      ],
     );
   }
 }

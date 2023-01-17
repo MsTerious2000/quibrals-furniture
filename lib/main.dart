@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quibrals_furniture/overlay.dart';
+import 'package:quibrals_furniture/home_overlay.dart';
+import 'package:quibrals_furniture/widgets/texts.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const QuibralsFurniture());
 }
 
@@ -10,12 +12,11 @@ class QuibralsFurniture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String title = 'Quibral\'s Furniture';
     return MaterialApp(
       title: title,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage(title: title),
+      home: const HomeOverlay(),
     );
   }
 }

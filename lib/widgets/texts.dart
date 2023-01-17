@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-FontStyle italic = FontStyle.italic;
+String indent = ' ' * 10;
+String title = 'Quibral\'s Furniture';
+String facebookPageLink = 'https://www.facebook.com/quibralsfurniture';
+String messengerLink = 'https://m.me/quibralsfurniture';
+String gmailLink = 'quibralsfurniture@gmail.com';
+String contactNumber = '+639287870409';
+
+FontStyle fsItalic = FontStyle.italic;
 FontStyle fsNormal = FontStyle.normal;
 
 FontWeight fwBold = FontWeight.bold;

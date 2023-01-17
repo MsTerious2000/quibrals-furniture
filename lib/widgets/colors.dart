@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+Color transparent = Colors.transparent;
+
 Color black = Colors.black;
 Color darkGreen = Colors.green.shade900;
 Color darkRed = Colors.red.shade900;
+Color gray = Colors.black45;
+Color maroon = HexColor('#800000');
+Color steelBlue = HexColor('#4682B4');
 Color white = Colors.white;
 
 // wood palette

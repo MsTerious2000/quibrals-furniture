@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quibrals_furniture/widgets/colors.dart';
+import 'package:quibrals_furniture/widgets/texts.dart';
 
 class Bookings extends StatefulWidget {
   const Bookings({super.key});
@@ -10,8 +12,11 @@ class Bookings extends StatefulWidget {
 class _BookingsState extends State<Bookings> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Bookings'),
+    return Column(
+      children: [
+        moonDance('Bookings', maroon, 40, fsNormal, fwBold, taCenter),
+        const Divider(thickness: 1, height: 50),
+      ],
     );
   }
 }

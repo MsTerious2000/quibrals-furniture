@@ -8,15 +8,19 @@ import 'package:quibrals_furniture/widgets/dialogs.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends StatefulWidget {
-  final String title;
-  const HomePage({super.key, required this.title});
+class HomeOverlay extends StatefulWidget {
+  const HomeOverlay({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeOverlay> createState() => _HomeOverlayState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeOverlayState extends State<HomeOverlay> {
+  var mobileLayout = 600;
+  double mobilePadding = 20;
+  double desktopPadding = 150;
+  bool isMobile = false;
+
   final List<Widget> screenWidget = const [
     Home(),
     AboutUs(),
@@ -27,6 +31,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > mobileLayout) {
+          isMobile = false;
+          return _mainContent();
+        } else {
+          isMobile = true;
+          return _mainContent();
+        }
+      },
+    );
+  }
+
+  Widget _mainContent() {
     return TooltipVisibility(
       visible: false,
       child: Scaffold(
@@ -44,8 +62,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                moonDance(
-                    widget.title, white, 30, fsNormal, fwNormal, taCenter),
+                moonDance(title, white, 30, fsNormal, fwNormal, taCenter),
               ],
             ),
           ),
@@ -92,65 +109,48 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    moonDance(
-                        widget.title, white, 25, fsNormal, fwNormal, taCenter),
+                    moonDance(title, white, 25, fsNormal, fwNormal, taCenter),
                   ],
                 ),
               ),
-              ListTile(
-                leading: Icon(Icons.home, color: hickory),
-                title: poppins('Home', hickory, 15, fsNormal, fwBold, taLeft),
-                onTap: () {
-                  if (mounted) {
-                    Navigator.pop(context);
-                    setState(() => screenNumber = 0);
-                  }
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.info, color: hickory),
-                title:
-                    poppins('About Us', hickory, 15, fsNormal, fwBold, taLeft),
-                onTap: () {
-                  if (mounted) {
-                    Navigator.pop(context);
-                    setState(() => screenNumber = 1);
-                  }
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.edit_calendar, color: hickory),
-                title:
-                    poppins('Bookings', hickory, 15, fsNormal, fwBold, taLeft),
-                onTap: () {
-                  if (mounted) {
-                    Navigator.pop(context);
-                    setState(() => screenNumber = 2);
-                  }
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.message, color: hickory),
-                title: poppins(
-                    'Contact Us', hickory, 15, fsNormal, fwBold, taLeft),
-                onTap: () {
-                  if (mounted) {
-                    Navigator.pop(context);
-                    setState(() => screenNumber = 3);
-                  }
-                },
-              ),
+              _drawerTile(Icons.home, 'Home', 0),
+              _drawerTile(Icons.info, 'About Us', 1),
+              _drawerTile(Icons.edit_calendar, 'Bookings', 2),
+              _drawerTile(Icons.message, 'Contact Us', 3),
             ],
           ),
         ),
-        body: screenWidget[screenNumber],
+        body: ListView(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: isMobile ? mobilePadding : desktopPadding,
+                vertical: 20,
+              ),
+              child: screenWidget[screenNumber],
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _drawerTile(IconData icon, String title, int screen) {
+    return ListTile(
+      leading: Icon(icon, color: hickory),
+      title: poppins(title, hickory, 15, fsNormal, fwBold, taLeft),
+      onTap: () {
+        if (mounted) {
+          Navigator.pop(context);
+          setState(() => screenNumber = screen);
+        }
+      },
     );
   }
 
   Future<void> openMessenger() async {
     if (!await launchUrl(
-      Uri.parse('https://m.me/quibralsfurniture'),
+      Uri.parse(messengerLink),
       mode: LaunchMode.externalApplication,
     )) {
       showDialog(
@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> openFacebook() async {
     if (!await launchUrl(
-      Uri.parse('https://www.facebook.com/quibralsfurniture'),
+      Uri.parse(facebookPageLink),
       mode: LaunchMode.externalApplication,
     )) {
       showDialog(
