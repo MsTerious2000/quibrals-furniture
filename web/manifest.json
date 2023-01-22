@@ -1,11 +1,11 @@
 {
-    "name": "quibrals_furniture",
-    "short_name": "quibrals_furniture",
+    "name": "Quibral's Furniture",
+    "short_name": "Quibral's Furniture",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Made-to-order and custom order furniture.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
