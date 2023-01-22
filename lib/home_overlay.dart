@@ -57,7 +57,8 @@ class _HomeOverlayState extends State<HomeOverlay> {
                   width: 35,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('/images/quibrals-furniture-logo.png'),
+                      image: AssetImage(
+                          'assets/images/quibrals-furniture-logo.png'),
                     ),
                   ),
                 ),
@@ -73,7 +74,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
               child: InkWell(
                 onTap: () => openFacebook(),
                 borderRadius: BorderRadius.circular(50),
-                child: Image.asset('/images/facebook-logo.png'),
+                child: Image.asset('assets/images/facebook-logo.png'),
               ),
             ),
             Padding(
@@ -81,7 +82,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
               child: InkWell(
                 onTap: () => openMessenger(),
                 borderRadius: BorderRadius.circular(50),
-                child: Image.asset('/images/messenger-logo.png'),
+                child: Image.asset('assets/images/messenger-logo.png'),
               ),
             ),
           ],

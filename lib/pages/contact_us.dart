@@ -22,7 +22,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                '/images/facebook-logo.png',
+                'assets/images/facebook-logo.png',
                 'Facebook Page',
                 facebookPageLink,
               ),
@@ -30,7 +30,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                '/images/messenger-logo.png',
+                'assets/images/messenger-logo.png',
                 'Messenger',
                 messengerLink,
               ),
@@ -38,7 +38,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                '/images/gmail-logo.png',
+                'assets/images/gmail-logo.png',
                 'Gmail',
                 gmailLink,
               ),
@@ -46,7 +46,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                '/images/mobile-call.png',
+                'assets/images/mobile-call.png',
                 'Contact Number',
                 contactNumber,
               ),

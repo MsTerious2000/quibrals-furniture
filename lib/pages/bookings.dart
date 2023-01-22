@@ -16,6 +16,7 @@ class _BookingsState extends State<Bookings> {
       children: [
         moonDance('Bookings', maroon, 40, fsNormal, fwBold, taCenter),
         const Divider(thickness: 1, height: 50),
+        moonDance('Coming Soon...', steelBlue, 40, fsNormal, fwBold, taCenter),
       ],
     );
   }

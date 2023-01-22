@@ -66,7 +66,9 @@ flutter:
   assets:
     - assets/images/carve.jpg
     - assets/images/dining.jpg
+    - assets/images/facebook-logo.png
     - assets/images/gmail-logo.png
+    - assets/images/home-image.png
     - assets/images/messenger-logo.png
     - assets/images/mobile-call.png
     - assets/images/quibrals-furniture-logo.png
