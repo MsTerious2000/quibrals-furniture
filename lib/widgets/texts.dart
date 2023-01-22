@@ -5,7 +5,7 @@ String title = 'Quibral\'s Furniture';
 String facebookPageLink = 'https://www.facebook.com/quibralsfurniture';
 String messengerLink = 'https://m.me/quibralsfurniture';
 String gmailLink = 'quibralsfurniture@gmail.com';
-String contactNumber = '+639287870409';
+String contactNumber = '+639071240360';
 
 FontStyle fsItalic = FontStyle.italic;
 FontStyle fsNormal = FontStyle.normal;
