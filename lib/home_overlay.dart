@@ -104,8 +104,8 @@ class _HomeOverlayState extends State<HomeOverlay> {
                       width: 100,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:
-                              AssetImage('/images/quibrals-furniture-logo.png'),
+                          image: AssetImage(
+                              'assets/images/quibrals-furniture-logo.png'),
                         ),
                       ),
                     ),
