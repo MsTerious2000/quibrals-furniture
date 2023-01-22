@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset('images/home-image.png'),
+        Image.asset('/images/home-image.png'),
         const Divider(thickness: 1, height: 50),
         moonDance('Welcome to Quibral\'s Furniture!', maroon, 40, fsNormal,
             fwBold, taCenter),

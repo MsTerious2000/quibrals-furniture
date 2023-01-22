@@ -22,7 +22,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                'images/facebook-logo.png',
+                '/images/facebook-logo.png',
                 'Facebook Page',
                 facebookPageLink,
               ),
@@ -30,7 +30,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                'images/messenger-logo.png',
+                '/images/messenger-logo.png',
                 'Messenger',
                 messengerLink,
               ),
@@ -38,7 +38,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                'images/gmail-logo.png',
+                '/images/gmail-logo.png',
                 'Gmail',
                 gmailLink,
               ),
@@ -46,7 +46,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(
               sm: 6,
               child: _contactCard(
-                'images/mobile-call.png',
+                '/images/mobile-call.png',
                 'Contact Number',
                 contactNumber,
               ),
@@ -65,7 +65,7 @@ class _ContactUsState extends State<ContactUs> {
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: transparent,
-            child: Image.asset(imageAsset),
+            child: SizedBox(child: Image.asset(imageAsset)),
           ),
           title: poppins(title, hickory, 20, fsNormal, fwBold, taLeft),
           subtitle: poppins(subtitle, gray, 12, fsItalic, fwBold, taLeft),
