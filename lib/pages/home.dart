@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
             fwBold,
             taCenter),
         const Divider(thickness: 1, height: 50),
-        poppins('Our Product and Services', steelBlue, 30, fsNormal, fwBold,
+        poppins('Our Product and Services', steelBlue, 25, fsNormal, fwBold,
             taCenter),
         poppins(
             'We sell made-to-order furniture and drift wood pieces at affordable prices.\nWe also repair and remodel furniture.\nOur products are unique and of high quality.',

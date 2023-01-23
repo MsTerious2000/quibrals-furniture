@@ -18,7 +18,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
   void initState() {
     markers.add(
       Marker(
-        markerId: MarkerId(title),
+        markerId: MarkerId(appTitle),
         position: const LatLng(37.42796133580664, -122.085749655962),
       ),
     );

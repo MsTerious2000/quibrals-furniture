@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/pages/about_us.dart';
-import 'package:quibrals_furniture/pages/bookings.dart';
+import 'package:quibrals_furniture/pages/products.dart';
 import 'package:quibrals_furniture/pages/contact_us.dart';
 import 'package:quibrals_furniture/pages/home.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
@@ -16,7 +16,7 @@ class HomeOverlay extends StatefulWidget {
 }
 
 class _HomeOverlayState extends State<HomeOverlay> {
-  var mobileLayout = 600;
+  var mobileLayout = 700;
   double mobilePadding = 20;
   double desktopPadding = 150;
   bool isMobile = false;
@@ -24,27 +24,28 @@ class _HomeOverlayState extends State<HomeOverlay> {
   final List<Widget> screenWidget = const [
     Home(),
     AboutUs(),
-    Bookings(),
+    Products(),
     ContactUs(),
   ];
   int screenNumber = 0;
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > mobileLayout) {
           isMobile = false;
-          return _mainContent();
+          return _mainContent(width);
         } else {
           isMobile = true;
-          return _mainContent();
+          return _mainContent(width);
         }
       },
     );
   }
 
-  Widget _mainContent() {
+  Widget _mainContent(double width) {
     return TooltipVisibility(
       visible: false,
       child: Scaffold(
@@ -63,7 +64,8 @@ class _HomeOverlayState extends State<HomeOverlay> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                moonDance(title, white, 30, fsNormal, fwNormal, taCenter),
+                moonDance('$appTitle - $width', white, 30, fsNormal, fwNormal,
+                    taCenter),
               ],
             ),
           ),
@@ -72,7 +74,8 @@ class _HomeOverlayState extends State<HomeOverlay> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               child: InkWell(
-                onTap: () => openFacebook(),
+                onTap: () =>
+                    openLink(facebookPageLink, 'Cannot open Facebook!'),
                 borderRadius: BorderRadius.circular(50),
                 child: Image.asset('assets/images/facebook-logo.png'),
               ),
@@ -80,7 +83,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               child: InkWell(
-                onTap: () => openMessenger(),
+                onTap: () => openLink(messengerLink, 'Cannot open Messenger!'),
                 borderRadius: BorderRadius.circular(50),
                 child: Image.asset('assets/images/messenger-logo.png'),
               ),
@@ -110,13 +113,14 @@ class _HomeOverlayState extends State<HomeOverlay> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    moonDance(title, white, 25, fsNormal, fwNormal, taCenter),
+                    moonDance(
+                        appTitle, white, 25, fsNormal, fwNormal, taCenter),
                   ],
                 ),
               ),
               _drawerTile(Icons.home, 'Home', 0),
               _drawerTile(Icons.info, 'About Us', 1),
-              _drawerTile(Icons.edit_calendar, 'Bookings', 2),
+              _drawerTile(Icons.shopping_cart, 'Products', 2),
               _drawerTile(Icons.message, 'Contact Us', 3),
             ],
           ),
@@ -149,28 +153,15 @@ class _HomeOverlayState extends State<HomeOverlay> {
     );
   }
 
-  Future<void> openMessenger() async {
+  Future<void> openLink(String link, String errorMessage) async {
     if (!await launchUrl(
-      Uri.parse(messengerLink),
+      Uri.parse(link),
       mode: LaunchMode.externalApplication,
     )) {
       showDialog(
         barrierDismissible: false,
         context: context,
-        builder: (context) => errorDialog(context, 'Cannot open Messenger!'),
-      );
-    }
-  }
-
-  Future<void> openFacebook() async {
-    if (!await launchUrl(
-      Uri.parse(facebookPageLink),
-      mode: LaunchMode.externalApplication,
-    )) {
-      showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) => errorDialog(context, 'Cannot open Facebook!'),
+        builder: (context) => errorDialog(context, errorMessage),
       );
     }
   }

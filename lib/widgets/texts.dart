@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 String indent = ' ' * 10;
-String title = 'Quibral\'s Furniture';
+String appTitle = 'Quibral\'s Furniture';
 String facebookPageLink = 'https://www.facebook.com/quibralsfurniture';
 String messengerLink = 'https://m.me/quibralsfurniture';
 String gmailLink = 'quibralsfurniture@gmail.com';
