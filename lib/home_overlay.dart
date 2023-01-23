@@ -31,21 +31,20 @@ class _HomeOverlayState extends State<HomeOverlay> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > mobileLayout) {
           isMobile = false;
-          return _mainContent(width);
+          return _mainContent();
         } else {
           isMobile = true;
-          return _mainContent(width);
+          return _mainContent();
         }
       },
     );
   }
 
-  Widget _mainContent(double width) {
+  Widget _mainContent() {
     return TooltipVisibility(
       visible: false,
       child: Scaffold(
@@ -64,8 +63,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                moonDance('$appTitle - $width', white, 30, fsNormal, fwNormal,
-                    taCenter),
+                moonDance(appTitle, white, 30, fsNormal, fwNormal, taCenter),
               ],
             ),
           ),
