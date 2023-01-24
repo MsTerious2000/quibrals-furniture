@@ -2,6 +2,7 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
 import 'package:quibrals_furniture/widgets/dialogs.dart';
+import 'package:quibrals_furniture/widgets/responsive.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -16,10 +17,24 @@ class ContactUs extends StatefulWidget {
 class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > mobileLayout) {
+          return _mainContent(desktopPadding);
+        } else {
+          return _mainContent(mobilePadding);
+        }
+      },
+    );
+  }
+
+  Widget _mainContent(double responsivePadding) {
+    return ListView(
+      padding: EdgeInsets.symmetric(horizontal: responsivePadding),
       children: [
+        const Divider(thickness: 1, height: 20),
         moonDance('Contact Us', maroon, 40, fsNormal, fwBold, taCenter),
-        const Divider(thickness: 1, height: 50),
+        const Divider(thickness: 1, height: 20),
         ResponsiveGridRow(
           children: [
             ResponsiveGridCol(
@@ -76,6 +91,7 @@ class _ContactUsState extends State<ContactUs> {
             ResponsiveGridCol(sm: 3, child: const SizedBox()),
           ],
         ),
+        const SizedBox(height: 100),
       ],
     );
   }

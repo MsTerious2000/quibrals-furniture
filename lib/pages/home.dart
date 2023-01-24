@@ -57,6 +57,7 @@ class _HomeState extends State<Home> {
             fsNormal,
             fwBold,
             taCenter),
+        const SizedBox(height: 100),
       ],
     );
   }

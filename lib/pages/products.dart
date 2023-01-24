@@ -34,25 +34,33 @@ class _ProductsState extends State<Products> {
   }
 
   Widget _mainContent(double responsivePadding) {
-    return GridView.builder(
+    return ListView(
       padding: EdgeInsets.symmetric(horizontal: responsivePadding),
-      shrinkWrap: true,
-      itemCount: _products.length,
-      itemBuilder: (context, index) {
-        var _index = index + 1;
-        var id = '#${_index.toString().padLeft(4, "0")}';
-        return _productCard(
-          context,
-          _products[index]["image"],
-          id,
-          _products[index]["name"],
-          _products[index]["description"],
-          _products[index]["price"],
-        );
-      },
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-      ),
+      children: [
+        const Divider(thickness: 1, height: 20),
+        moonDance('Products', maroon, 40, fsNormal, fwBold, taCenter),
+        const Divider(thickness: 1, height: 20),
+        GridView.builder(
+          shrinkWrap: true,
+          itemCount: _products.length,
+          itemBuilder: (context, index) {
+            var _index = index + 1;
+            var id = '#${_index.toString().padLeft(4, "0")}';
+            return _productCard(
+              context,
+              _products[index]["image"],
+              id,
+              _products[index]["name"],
+              _products[index]["description"],
+              _products[index]["price"],
+            );
+          },
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+          ),
+        ),
+        const SizedBox(height: 100),
+      ],
     );
   }
 

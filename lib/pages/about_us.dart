@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
+import 'package:quibrals_furniture/widgets/responsive.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
 
 class AboutUs extends StatefulWidget {
@@ -12,10 +13,24 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > mobileLayout) {
+          return _mainContent(desktopPadding);
+        } else {
+          return _mainContent(mobilePadding);
+        }
+      },
+    );
+  }
+
+  Widget _mainContent(double responsivePadding) {
+    return ListView(
+      padding: EdgeInsets.symmetric(horizontal: responsivePadding),
       children: [
+        const Divider(thickness: 1, height: 20),
         moonDance('About Us', maroon, 40, fsNormal, fwBold, taCenter),
-        const Divider(thickness: 1, height: 50),
+        const Divider(thickness: 1, height: 20),
         Image.asset('assets/images/carve.jpg'),
         const Divider(thickness: 1, height: 50),
         poppins(
@@ -25,6 +40,7 @@ class _AboutUsState extends State<AboutUs> {
             fsNormal,
             fwBold,
             taJustify),
+        const SizedBox(height: 100),
       ],
     );
   }
