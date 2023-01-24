@@ -23,7 +23,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
     Products(),
     ContactUs(),
   ];
-  int screenNumber = 2;
+  int screenNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +116,12 @@ class _HomeOverlayState extends State<HomeOverlay> {
               _drawerTile(Icons.info, 'About Us', 1),
               _drawerTile(Icons.shopping_cart, 'Products', 2),
               _drawerTile(Icons.message, 'Contact Us', 3),
+              const Divider(height: 20, thickness: 2),
+              Icon(Icons.copyright, color: black, size: 15),
+              poppins(
+                  '$appTitle 2023', black, 12, fsNormal, fwNormal, taCenter),
+              poppins('All rights reserved.', black, 12, fsNormal, fwNormal,
+                  taCenter),
             ],
           ),
         ),
