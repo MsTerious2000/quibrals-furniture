@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
+import 'package:quibrals_furniture/widgets/responsive.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
 
 class Home extends StatefulWidget {
@@ -12,12 +11,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var mobileLayout = 600;
-  bool isMobile = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > mobileLayout) {
+          return _mainContent(desktopPadding);
+        } else {
+          return _mainContent(mobilePadding);
+        }
+      },
+    );
+  }
+
+  Widget _mainContent(double responsivePadding) {
+    return ListView(
+      padding: EdgeInsets.symmetric(horizontal: responsivePadding),
       children: [
+        const SizedBox(height: 20),
         Image.asset('assets/images/home-image.png'),
         const Divider(thickness: 1, height: 50),
         moonDance('Welcome to Quibral\'s Furniture!', maroon, 40, fsNormal,

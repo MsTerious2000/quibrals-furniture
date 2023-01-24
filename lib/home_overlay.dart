@@ -5,6 +5,7 @@ import 'package:quibrals_furniture/pages/contact_us.dart';
 import 'package:quibrals_furniture/pages/home.dart';
 import 'package:quibrals_furniture/widgets/colors.dart';
 import 'package:quibrals_furniture/widgets/dialogs.dart';
+import 'package:quibrals_furniture/widgets/responsive.dart';
 import 'package:quibrals_furniture/widgets/texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,18 +17,13 @@ class HomeOverlay extends StatefulWidget {
 }
 
 class _HomeOverlayState extends State<HomeOverlay> {
-  var mobileLayout = 700;
-  double mobilePadding = 20;
-  double desktopPadding = 150;
-  bool isMobile = false;
-
   final List<Widget> screenWidget = const [
     Home(),
     AboutUs(),
     Products(),
     ContactUs(),
   ];
-  int screenNumber = 0;
+  int screenNumber = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -123,17 +119,7 @@ class _HomeOverlayState extends State<HomeOverlay> {
             ],
           ),
         ),
-        body: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: isMobile ? mobilePadding : desktopPadding,
-                vertical: 20,
-              ),
-              child: screenWidget[screenNumber],
-            ),
-          ],
-        ),
+        body: screenWidget[screenNumber],
       ),
     );
   }

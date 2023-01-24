@@ -4,6 +4,7 @@ String indent = ' ' * 10;
 String appTitle = 'Quibral\'s Furniture';
 String facebookPageLink = 'https://www.facebook.com/quibralsfurniture';
 String messengerLink = 'https://m.me/quibralsfurniture';
+String youtubeLink = 'https://www.youtube.com/@quibralsfurniture';
 String gmailLink = 'quibralsfurniture@gmail.com';
 String contactNumber = '+639071240360';
 
